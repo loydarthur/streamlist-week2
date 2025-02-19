@@ -6,17 +6,19 @@ function TMDBMovies() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const API_KEY = process.env.REACT_APP_TMDB_API_KEY || "a811f5125a024eaec27cf8e31e3e1fb6";
+    const API_KEY = process.env.REACT_APP_TMDB_API_KEY || 'a811f5125a024eaec27cf8e31e3e1fb6';
     const fetchMovies = async () => {
       try {
-        const response = await fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}`);
+        const response = await fetch(
+          `https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}`
+        );
         if (!response.ok) {
-          throw new Error("Error fetching trending movies from TMDB");
+          throw new Error('Error fetching trending movies from TMDB');
         }
         const data = await response.json();
         setMovies(data.results);
-      } catch (error) {
-        setError(error);
+      } catch (err) {
+        setError(err);
       } finally {
         setLoading(false);
       }
@@ -27,7 +29,7 @@ function TMDBMovies() {
 
   if (loading) {
     return (
-      <div className="tmdb-container" style={{ padding: "20px", textAlign: "center" }}>
+      <div className="tmdb-container" style={{ padding: '20px', textAlign: 'center' }}>
         <h1>Trending Movies</h1>
         <p>Loading...</p>
       </div>
@@ -36,7 +38,7 @@ function TMDBMovies() {
 
   if (error) {
     return (
-      <div className="tmdb-container" style={{ padding: "20px", textAlign: "center" }}>
+      <div className="tmdb-container" style={{ padding: '20px', textAlign: 'center' }}>
         <h1>Trending Movies</h1>
         <p>Error: {error.message}</p>
       </div>
@@ -44,21 +46,21 @@ function TMDBMovies() {
   }
 
   return (
-    <div className="tmdb-container" style={{ padding: "20px", textAlign: "center" }}>
+    <div className="tmdb-container" style={{ padding: '20px', textAlign: 'center' }}>
       <h1>Trending Movies</h1>
       {movies.length === 0 ? (
         <p>No movies found.</p>
       ) : (
-        <ul style={{ listStyle: "none", padding: 0 }}>
-          {movies.map(movie => (
+        <ul style={{ listStyle: 'none', padding: 0 }}>
+          {movies.map((movie) => (
             <li
               key={movie.id}
               style={{
-                margin: "20px auto",
-                padding: "10px",
-                border: "1px solid #ddd",
-                borderRadius: "5px",
-                maxWidth: "600px"
+                margin: '20px auto',
+                padding: '10px',
+                border: '1px solid #ddd',
+                borderRadius: '5px',
+                maxWidth: '600px',
               }}
             >
               <h2>{movie.title}</h2>
@@ -67,7 +69,7 @@ function TMDBMovies() {
                 <img
                   src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
                   alt={movie.title}
-                  style={{ borderRadius: "5px" }}
+                  style={{ borderRadius: '5px' }}
                 />
               )}
               <p>
@@ -75,7 +77,11 @@ function TMDBMovies() {
                   href={`https://www.themoviedb.org/movie/${movie.id}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ color: "#0d47a1", textDecoration: "none", fontWeight: "bold" }}
+                  style={{
+                    color: '#0d47a1',
+                    textDecoration: 'none',
+                    fontWeight: 'bold',
+                  }}
                 >
                   View on TMDB
                 </a>
