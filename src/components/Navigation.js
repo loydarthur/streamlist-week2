@@ -1,4 +1,5 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -17,6 +18,8 @@ function Navigation() {
 
 export default Navigation;
 =======
+=======
+>>>>>>> Stashed changes
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Navigation.css'; // Ensure you have this CSS file for styling

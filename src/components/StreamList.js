@@ -1,4 +1,5 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import React, { useState } from 'react';
 import { FaFilm, FaEdit, FaTrash, FaCheck } from 'react-icons/fa';
 import './StreamList.css'; // Import CSS file for styling
@@ -95,6 +96,8 @@ function StreamList() {
 
 export default StreamList;
 =======
+=======
+>>>>>>> Stashed changes
 // components/StreamList.js
 import React, { useState, useEffect } from 'react';
 import { FaFilm, FaEdit, FaTrash, FaCheck } from 'react-icons/fa';
